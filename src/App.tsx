@@ -1,14 +1,38 @@
-import { Button } from "./components/ui/button";
+import {
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+
+//pages
+import Home from "./pages/Home";
+import Page from "./pages/Page";
+import ErrorPage from "./pages/ErrorPage";
+
+//layouts
+import Root from "./layouts/Root";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "page",
+        element: <Page />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
     <>
-      <main className="h-screen flex flex-col items-center justify-center gap-5">
-        <h1>Vite + React + shadcn Template</h1>
-        <div>
-          <Button>I'm a awesome shadcn button!</Button>
-        </div>
-      </main>
+      <RouterProvider router={router} />
     </>
   );
 }
