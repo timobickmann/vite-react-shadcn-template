@@ -6,8 +6,8 @@ function ErrorPage() {
 
   return (
     <>
-      <div>
-        <h1>Oops!</h1>
+      <div className="container mx-auto flex flex-col gap-5 items-center my-10">
+        <h1 className="text-3xl">Oops!</h1>
         <p>Sorry, an unexpected error has occurred.</p>
         <p>
           <i>

@@ -1,3 +1,4 @@
+import { ModeToggle } from "@/components/ModeToggle";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,8 +10,9 @@ import { NavLink, Outlet } from "react-router-dom";
 
 function Root() {
   return (
-    <>
-      <NavigationMenu className="mx-auto">
+    <><div className="container mx-auto flex justify-between items-center mt-1">
+      
+      <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -24,7 +26,12 @@ function Root() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <div className="container mx-auto flex flex-col items-center my-10"><Outlet /></div>
+      <ModeToggle /></div>
+
+      <div className="container mx-auto flex flex-col items-center my-10">
+        <Outlet />
+      </div>
+
       
     </>
   );
